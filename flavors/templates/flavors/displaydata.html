@@ -1,0 +1,22 @@
+<html>
+    <body>
+
+        {% if data_list %}
+            <table border='5'>
+                <tr><b><td>FLAVORS</td><td>COLOR</td><td>RAITING</td></b></tr>
+                {% for flavor in data_list %}
+                    {% if flavor.color != 'xxx' or flavor.raiting != 'x' %}
+                        <tr>
+                            <td> {{flavor.title}} </td>
+                            <td> {{flavor.color}} </td>
+                            <td> {{flavor.raiting}} </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {% else %}
+            <h2>We have got no data.</h2>
+        {% endif %}
+
+    </body>
+</html>

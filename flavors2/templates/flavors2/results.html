@@ -1,0 +1,14 @@
+Info:
+{% if data_list %}
+<table border=4>
+    {% for flavor in data_list %}
+        <tr>
+            <td>{{ flavor.pub_date }}</td>
+            <td>{{ flavor.review }}</td>
+            <td>{{ flavor.id }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <h2>We have no data.</h2>
+{% endif %}
