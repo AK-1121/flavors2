@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+from flavors.models import Flavor
+
 class PublishedManager(models.Manager):
 
     use_for_related_fields = True
@@ -13,8 +15,9 @@ class PublishedManager(models.Manager):
         return self.filter(pub_date_gt=timezone.now(), **kwargs)
 
 class FlavorReview(models.Model):
-    review = models.CharField(max_length=255)
-    pub_date = models.DateTimeField()
+    title = models.ForeignKey(Flavor)
+    review = models.CharField(max_length=255, default='')
+    pub_date = models.DateTimeField(auto_now_add=True)
 
 
     objects = PublishedManager()
