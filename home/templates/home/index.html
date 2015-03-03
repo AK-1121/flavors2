@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>My Home Page</title>           
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" media="screen" />
+ 
+</head>
+<body>
+User: {{ user }}<br>
+{% if user %}
+    Hello, {{ user }}!<a href="{% url 'django.contrib.auth.views.logout' %}">logout</a><br>
+{% else %}
+    Please <a href="{% url 'django.contrib.auth.views.login' %}">login</a><br>
+{% endif %}
+<a href="{% url 'displaydata' %}">Flavors: DisplayData</a><br>
+<a href="{% url 'flavors.views.index' %}">Flavors: index</a><br>
+<a href="{% url 'index1' %}">Flavors: index</a><br>
+<a href="{% url 'flavors2.views.methods' %}">Flavors2: methods</a><br>
+<a href="{% url 'index2' %}">Flavors2: index2</a><br>
+<a href="{% url 'django.contrib.auth.views.login' %}">Login</a><br>
+
+{% if list_of_lists %}
+    {% for li in list_of_lists %}
+        <ul>
+        li - {{ li }}
+        {% for element in li %}
+            <li>{{ element }}</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+{% endif %}
+
+
+
+
+</body>
+</html>

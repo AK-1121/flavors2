@@ -1,0 +1,12 @@
+{% extends "flavors2/base.html" %}
+
+{% block content %}
+Hello 123!<br><br>
+Data_dict:<br>
+{% for key, value in data_dict.items %}
+    {{key}} - {{value}}<br><br>
+{% endfor %}
+
+{{data_dict.test123}}
+
+{% endblock %}
